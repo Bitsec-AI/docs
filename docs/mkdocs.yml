@@ -4,6 +4,13 @@ repo_url: https://github.com/you/yourproject
 
 theme:
   name: material
+  icon:
+    logo: material/shield-outline
+    edit: material/pencil
+    search: material/magnify
+    repo: material/github
+  favicon: assets/shield-outline.png
+
   palette:
     - scheme: default # Light mode
       toggle:
