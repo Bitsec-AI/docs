@@ -1,0 +1,75 @@
+site_name: Bitsec-AI Documentation
+site_url: https://docs.bitsec.ai
+site_description: Documentation for Bittensor subnet operators including validators and miners
+site_author: Bitsec-AI
+
+repo_name: Bitsec-AI/docs
+repo_url: https://github.com/Bitsec-AI/docs
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Overview: getting-started/overview.md
+    - Installation: getting-started/installation.md
+  - For Validators:
+    - Introduction: validators/introduction.md
+    - Setup Guide: validators/setup.md
+    - Best Practices: validators/best-practices.md
+  - For Miners:
+    - Introduction: miners/introduction.md
+    - Setup Guide: miners/setup.md
+    - Optimization: miners/optimization.md
+  - Subnet Operations:
+    - Architecture: subnet/architecture.md
+    - Monitoring: subnet/monitoring.md
+    - Troubleshooting: subnet/troubleshooting.md
+  - API Reference:
+    - Overview: api/overview.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
