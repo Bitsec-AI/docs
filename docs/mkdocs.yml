@@ -1,3 +1,15 @@
-site_name: My Docs
+site_name: Bitsec Documentation
+site_description: Documentation for Bitsec.ai an AI platform for blockchain security.
+repo_url: https://github.com/you/yourproject
+
 theme:
   name: material
+  palette:
+    - scheme: default # Light mode
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate # Dark mode
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
