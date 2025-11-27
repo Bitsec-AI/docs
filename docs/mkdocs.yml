@@ -1,6 +1,6 @@
 site_name: Bitsec Documentation
-site_description: Documentation for Bitsec.ai an AI platform for blockchain security.
-repo_url: https://github.com/you/yourproject
+site_description: Documentation for Bitsec.ai, building AI security agents that replace security researchers.
+repo_url: https://github.com/Bitsec-AI/docs
 
 theme:
   name: material
