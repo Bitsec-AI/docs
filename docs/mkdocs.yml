@@ -34,3 +34,16 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+
+# Navigation structure - defines the sidebar menu
+nav:
+  - Get Started:
+      - Introduction: index.md
+      - Incentive Mechanism: incentive-mechanism.md
+  - Setup Guides:
+      - Miner Guide: miner.md
+      - Validator Guide: validator.md
+  - System Overview:
+      - Platform: platform.md
+      - Inference Proxy: inference-proxy.md
+      - Screeners and Validators: agent-evaluation.md
