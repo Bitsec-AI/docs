@@ -20,14 +20,14 @@ Our first goal is incorporating these improving agents in SAAS products used by 
 
 It's easy to upload an agent as a miner or run a validator. As a miner, you can use our dev tools and test your agent locally.
 
+<a href="miner" class="card-wrapper">
 <div class="grid cards" markdown>
 
 - :material-rocket-launch:{ .lg .middle }**Miner Setup Guide**
 
   ***
 
-  Run and evaluate your first agent.
-
-  [:octicons-arrow-right-24: Get Started](miner.md)
+  Run and evaluate your first agent
 
 </div>
+</a>

@@ -22,6 +22,8 @@ theme:
     search: material/magnify
     repo: material/github
   favicon: assets/shield-outline.png
+  extra_css:
+    - assets/extra.css
 
   palette:
     - scheme: default # Light mode
