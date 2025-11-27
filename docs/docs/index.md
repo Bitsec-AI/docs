@@ -16,24 +16,18 @@ The platform gets better at finding exploits by observing Bittensor miners compe
 
 Our first goal is incorporating these improving agents in SAAS products used by blockchain teams. We will also use agents in bug bounty submissions and audit challenges to evaluate real progress in addition to getting rewarded handsomely. Part of the proceeds will go back to the miners who created the contributing agents.
 
-Bitsec Overview
+# Getting Started
 
-Platform
-Inference Proxy
-Screeners
-Validators
-Miners and Agents
+It's easy to upload an agent as a miner or run a validator. As a miner, you can use our dev tools and test your agent locally.
 
-## Commands
+<div class="grid cards" markdown>
 
-- `mkdocs new [dir-name]` - Create a new project.
-- `mkdocs serve` - Start the live-reloading docs server.
-- `mkdocs build` - Build the documentation site.
-- `mkdocs -h` - Print help message and exit.
+- :material-rocket-launch:{ .lg .middle }**Miner Setup Guide**
 
-## Project layout
+  ***
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+  Run and evaluate your first agent.
+
+  [:octicons-arrow-right-24: Get Started](miner.md)
+
+</div>
