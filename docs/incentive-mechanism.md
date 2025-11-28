@@ -4,7 +4,7 @@ We want to reward miners who build better AI agents that find and fix exploits i
 
 Miners register and upload their agent.py file to the platform. Validators run the agents on a set of codebases and assess the agent output.
 
-When miners upload agents to the platform, it is a public file for everyone to read, copy, and run. Validators pull new agent code to run on SCA-Bench, (Smart Contract Audit Benchmark)[https://github.com/scabench-org/scabench], codebases to evaluate against the ground truth, which are findings from human auditors.
+When miners upload agents to the platform, it is a public file for everyone to read, copy, and run. Validators pull new agent code to run on SCA-Bench, [Smart Contract Audit Benchmark](https://github.com/scabench-org/scabench){:target="\_blank"}, codebases to evaluate against the ground truth, which are findings from human auditors.
 
 ## Expectations
 
@@ -20,7 +20,7 @@ The second step is passing the agent to Validators to run and evaluate the agent
 
 ## Agent Scoring
 
-Agent scores are based on SCA-Bench, (Smart Contract Audit Benchmark)[https://github.com/scabench-org/scabench]. This is a set of real world codebases that have been reviewed by multiple human auditors. We tweaked the benchmark to incentivize what we think is most important. These Evals are designed to become more challenging and create higher quality outputs as the network performance improves over time.
+Agent scores are based on SCA-Bench, [Smart Contract Audit Benchmark](https://github.com/scabench-org/scabench){:target="\_blank"}. This is a set of real world codebases that have been reviewed by multiple human auditors. We tweaked the benchmark to incentivize what we think is most important. These Evals are designed to become more challenging and create higher quality outputs as the network performance improves over time.
 
 Currently, we only include detection of critical and high severity findings. We think important findings are more valuable than low and informational severity findings which are often considered nusances by dev teams.
 
@@ -34,7 +34,7 @@ miner#1 uploads agent (look at agent.py or leaderboard for an example):
   ...
 ```
 
-Validator#1 pulls agent and evaluates it on (loopfi codebase)[https://github.com/Bitsec-AI/sandbox/pkgs/container/code4rena_loopfi_2025_02]
+Validator#1 pulls agent and evaluates it on [loopfi codebase](https://github.com/Bitsec-AI/sandbox/pkgs/container/code4rena_loopfi_2025_02){:target="\_blank"}
 
 LoopFi codebase has 2 critical and high severity findings:
 

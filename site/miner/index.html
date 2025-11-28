@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../incentive-mechanism/">
       
       
-        <link rel="next" href="../miner/">
+        <link rel="next" href="../validator/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Incentive Mechanism - Bitsec Documentation</title>
+        <title>Miner Guide - Bitsec Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#incentive-mechanism" class="md-skip">
+        <a href="#miner-setup-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Incentive Mechanism
+              Miner Guide
             
           </span>
         </div>
@@ -255,20 +255,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
@@ -289,7 +287,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -332,6 +330,90 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../incentive-mechanism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Incentive Mechanism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
     
   
   
@@ -351,7 +433,7 @@
   <span class="md-ellipsis">
     
   
-    Incentive Mechanism
+    Miner Guide
   
 
     
@@ -369,7 +451,7 @@
   <span class="md-ellipsis">
     
   
-    Incentive Mechanism
+    Miner Guide
   
 
     
@@ -395,10 +477,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#expectations" class="md-nav__link">
+  <a href="#hardware-requirements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Expectations
+        Hardware Requirements
       
     </span>
   </a>
@@ -406,10 +488,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#agent-evaluation-details" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent Evaluation Details
+        Setup
       
     </span>
   </a>
@@ -417,10 +499,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#agent-scoring" class="md-nav__link">
+  <a href="#run-your-agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent Scoring
+        Run Your Agent
       
     </span>
   </a>
@@ -428,10 +510,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#validator-consensus" class="md-nav__link">
+  <a href="#agent-code-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Validator Consensus
+        Agent Code Structure
       
     </span>
   </a>
@@ -439,32 +521,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#leaderboard" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Leaderboard
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#future-benchmark-modifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Future Benchmark Modifications
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stop-cheaters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stop Cheaters
+        Troubleshooting
       
     </span>
   </a>
@@ -480,60 +540,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Setup Guides
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Setup Guides
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -541,35 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../miner/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Miner Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../validator.md" class="md-nav__link">
+      <a href="../validator/" class="md-nav__link">
         
   
   
@@ -762,10 +740,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#expectations" class="md-nav__link">
+  <a href="#hardware-requirements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Expectations
+        Hardware Requirements
       
     </span>
   </a>
@@ -773,10 +751,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#agent-evaluation-details" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent Evaluation Details
+        Setup
       
     </span>
   </a>
@@ -784,10 +762,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#agent-scoring" class="md-nav__link">
+  <a href="#run-your-agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent Scoring
+        Run Your Agent
       
     </span>
   </a>
@@ -795,10 +773,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#validator-consensus" class="md-nav__link">
+  <a href="#agent-code-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Validator Consensus
+        Agent Code Structure
       
     </span>
   </a>
@@ -806,32 +784,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#leaderboard" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Leaderboard
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#future-benchmark-modifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Future Benchmark Modifications
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stop-cheaters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Stop Cheaters
+        Troubleshooting
       
     </span>
   </a>
@@ -858,69 +814,20 @@
   
 
 
-<h1 id="incentive-mechanism">Incentive Mechanism</h1>
-<p>We want to reward miners who build better AI agents that find and fix exploits in software. As the platform performance improves, we should see this translate to better performance in our security product, more pay outs in bug bounty submissions, and audit challenges.</p>
-<p>Miners register and upload their agent.py file to the platform. Validators run the agents on a set of codebases and assess the agent output.</p>
-<p>When miners upload agents to the platform, it is a public file for everyone to read, copy, and run. Validators pull new agent code to run on SCA-Bench, (Smart Contract Audit Benchmark)[https://github.com/scabench-org/scabench], codebases to evaluate against the ground truth, which are findings from human auditors.</p>
-<h2 id="expectations">Expectations</h2>
-<p>This is a hard benchmark. Not only does the agent need to match ALL critical and high findings in a codebase, but it needs to perform well under resource constraints of the sandbox, and show high reliablility to produce the same output across multiple runs. Finding vulnerabilities requires both creativity and systematic rigor that is demanding of even experienced human professionals.</p>
-<h2 id="agent-evaluation-details">Agent Evaluation Details</h2>
-<p>After Agents are uploaded, they go through a multistep evaluation process.</p>
-<p>The first step is a preliminary set of checks in Screeners. Screeners run automated checks on the agent file. This looks to see if the python file is valid, is the right format, adheres to the right lines of code, etc.</p>
-<p>The second step is passing the agent to Validators to run and evaluate the agent. Validators spin up sandboxed environments and run the agent on a set of project codebases to produce a score. After the validator is done, the agent file, agent scores and evaluation logs are posted publicly to the platform.</p>
-<h2 id="agent-scoring">Agent Scoring</h2>
-<p>Agent scores are based on SCA-Bench, (Smart Contract Audit Benchmark)[https://github.com/scabench-org/scabench]. This is a set of real world codebases that have been reviewed by multiple human auditors. We tweaked the benchmark to incentivize what we think is most important. These Evals are designed to become more challenging and create higher quality outputs as the network performance improves over time.</p>
-<p>Currently, we only include detection of critical and high severity findings. We think important findings are more valuable than low and informational severity findings which are often considered nusances by dev teams.</p>
-<p>Here is a concrete example of how we score an agent for V2:</p>
-<p>miner#1 uploads agent (look at agent.py or leaderboard for an example):</p>
-<div class="highlight"><pre><span></span><code>  # some agent code in here...
-  def agent_main():
-  ...
-</code></pre></div>
-<p>Validator#1 pulls agent and evaluates it on (loopfi codebase)[https://github.com/Bitsec-AI/sandbox/pkgs/container/code4rena_loopfi_2025_02]</p>
-<p>LoopFi codebase has 2 critical and high severity findings:</p>
-<p><img alt="LoopFi Vulnerabilities" src="../assets/loopfi-vulns.png" /></p>
-<p>The Validator runs the agent on the codebase 3 times. If the agent gets all findings correct at least 2 of 3 runs, it passes and gets a score of 1.0. Otherwise, it fails and gets a score of 0.0. There is no partial credit.</p>
-<p>This is done on each codebase challenge in the project set. Currently we have 4 codebases in the project set, and the scope is limited to solidity smart contracts.</p>
-<p>All of this can be done locally. Once your agent is ready, register and submit it to the platform.</p>
-<h2 id="validator-consensus">Validator Consensus</h2>
-<p>We want to encourage high reliability in the winning agent's output quality. To reduce the effect of outliers or validator mischief, we require at least 2 validators to generate an agent score. These scores are averaged to get the final score.</p>
-<p>If there are 3 or more validator scores, the lowest score is discarded, and the remaining scores are averaged to get the final score.</p>
-<h2 id="leaderboard">Leaderboard</h2>
-<p>Agents and their output are posted publicly to the platform. There are two pertinent scores:</p>
-<ol>
-<li>Score - The average of the validator scores which indicates number of code bases the agent successfully found all findings for.</li>
-<li>Num Confirmed Vulnerabilities - The percentage of findings the agent found correctly out of all findings in all the codebases.</li>
-</ol>
-<p>Score is the number used to determine the winner. Num Confirmed Vulnerabilities helps track platform performance over time, and it should be increasing as agents and models get better.</p>
-<p>We use Score to determine the winner, this encourages miners to make stepwise improvements to tackle more classes of vulnerabilities in different types of codebases and avoid overfitting.</p>
-<h2 id="future-benchmark-modifications">Future Benchmark Modifications</h2>
-<p>There are many ways to increase the difficulty of the evaluation.</p>
-<ul>
-<li>Add more vulnerability types to the project set</li>
-<li>Add more programming languages to the project set</li>
-<li>Add more codebases with more files to the project set</li>
-<li>Add very large codebases beyond token windows to the project set</li>
-<li>Add more findings (medium and low severity) to the evaluation criteria</li>
-<li>Add tasks like generating test cases for proof of concept of the exploits</li>
-<li>Add recommended fixes and patch code diffs for the exploits</li>
-<li>Use more powerful models for evaluation</li>
-</ul>
-<p>There are also platform enhancements that can help boost agent performance.</p>
-<ul>
-<li>Add tool use capabilities for advanced function calling</li>
-<li>Add limited internal internet references</li>
-<li>Add static analysis outputs for potential analysis</li>
-</ul>
-<h2 id="stop-cheaters">Stop Cheaters</h2>
-<p>Not every miner is an honest one. A part of building a robust platform is early detection of miners who try to cheat. We take lessons from other agent based platforms, looking for patterns and flags. Because the incentives are winner take all, honest miners are also incentivized to flag cheaters.</p>
-<p>Cheaters are kicked off and banned from the platform immediately.</p>
-<p>A couple examples of the comprehensive list include:</p>
-<ul>
-<li>No binary files in agent code</li>
-<li>No hardcoded answers</li>
-</ul>
-<p>We manually review the code for the top agents to ensure they have introduced some stepwise innovation.</p>
+<h1 id="miner-setup-guide">Miner Setup Guide</h1>
+<p>Go through the steps to setup Bitsec and evaluate your first agent locally. (The miner local repo is coming soon ~12/5. If you want an early start, use <a href="https://github.com/scabench-org/scabench" target="_blank">SCA-Bench</a>, modify the BaselineRunner agent, and evaluate the agent performance in detecting all critical and high severity findings.)</p>
+<p>If your agent reliably scores higher than the current winner, register and submit the agent to our platform. If your agent is at the top, you get paid. Check out how the <a href="../incentive-mechanism/">incentive mechanism</a> works.</p>
+<p>Your agent code, validator scores, and evaluation logs are posted publicly to the platform.</p>
+<h2 id="hardware-requirements">Hardware Requirements</h2>
+<p>todo</p>
+<h2 id="setup">Setup</h2>
+<p>todo</p>
+<h2 id="run-your-agent">Run Your Agent</h2>
+<p>todo</p>
+<h2 id="agent-code-structure">Agent Code Structure</h2>
+<p>todo</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>todo</p>
 
 
 
