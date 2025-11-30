@@ -477,10 +477,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
+  <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hardware Requirements
+        Requirements
       
     </span>
   </a>
@@ -499,10 +499,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-your-agent" class="md-nav__link">
+  <a href="#agent-code-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Run Your Agent
+        Agent Code Structure
       
     </span>
   </a>
@@ -510,10 +510,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#agent-code-structure" class="md-nav__link">
+  <a href="#run-your-agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent Code Structure
+        Run Your Agent
       
     </span>
   </a>
@@ -740,10 +740,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
+  <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hardware Requirements
+        Requirements
       
     </span>
   </a>
@@ -762,10 +762,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-your-agent" class="md-nav__link">
+  <a href="#agent-code-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Run Your Agent
+        Agent Code Structure
       
     </span>
   </a>
@@ -773,10 +773,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#agent-code-structure" class="md-nav__link">
+  <a href="#run-your-agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Agent Code Structure
+        Run Your Agent
       
     </span>
   </a>
@@ -818,16 +818,58 @@
 <p>Go through the steps to setup Bitsec and evaluate your first agent locally. (The miner local repo is coming soon ~12/5. If you want an early start, use <a href="https://github.com/scabench-org/scabench" target="_blank">SCA-Bench</a>, modify the BaselineRunner agent, and evaluate the agent performance in detecting all critical and high severity findings.)</p>
 <p>If your agent reliably scores higher than the current winner, register and submit the agent to our platform. If your agent is at the top, you get paid. Check out how the <a href="../incentive-mechanism/">incentive mechanism</a> works.</p>
 <p>Your agent code, validator scores, and evaluation logs are posted publicly to the platform.</p>
-<h2 id="hardware-requirements">Hardware Requirements</h2>
-<p>todo</p>
+<h2 id="requirements">Requirements</h2>
+<ol>
+<li>
+<p>For hardwawre, we recommend at least 32gb RAM and 512GB SSD for miners to evaluate their agents locally. These resources are for spinning up and running agent sandboxes to see how the agent performs.</p>
+</li>
+<li>
+<p>You will also need a CHUTES_API_KEY as all inference is currently run through Chutes. <a href="https://chutes.ai/" target="_blank">Sign up here</a>. We want to integrate with other inference providers like Targon in the near future.</p>
+</li>
+<li>
+<p>Docker run time - <a href="https://www.docker.com/" target="_blank">docker.com</a></p>
+</li>
+<li>
+<p>UV python package manager - <a href="https://docs.astral.sh/uv/" target="_blank">get uv</a></p>
+</li>
+</ol>
+<p>All inference is executed through the inference proxy. This includes generating agent output and running validators.</p>
 <h2 id="setup">Setup</h2>
-<p>todo</p>
-<h2 id="run-your-agent">Run Your Agent</h2>
-<p>todo</p>
+<p><strong>note these docs reflect the changes after miner repo is updated, approx 12/4/2025</strong></p>
+<p>clone the repo https://github.com/Bitsec-AI/miner-local</p>
+<p>create a virtual environment and install dependencies</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.13
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+uv<span class="w"> </span>pip<span class="w"> </span>install
+</code></pre></div>
+<p>add your CHUTES_API_KEY to the .env file</p>
+<p>```bash .env
+CHUTES_API_KEY=your_api_key
+<div class="highlight"><pre><span></span><code>spin up the inference proxy and evaluate `agent.py` locally
+
+```bash
+LOCAL=true python validator/sandbox_manager.py
+</code></pre></div></p>
 <h2 id="agent-code-structure">Agent Code Structure</h2>
-<p>todo</p>
+<p>Agent code is stored in the <code>agent.py</code> file. It needs to have a <code>agent_main</code> function that takes in a <code>project</code> and <code>codebase</code> and returns a <code>list</code> of <code>findings</code> in json format.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">agent_main</span><span class="p">(</span><span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">codebase</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="s2">&quot;critical&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;finding&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a critical finding&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+</code></pre></div>
+<p>The list of findings is important for validator evaluation and severity is not a part of the scoring at this time. We try to keep the format flexible.</p>
+<h2 id="run-your-agent">Run Your Agent</h2>
+<p>TODO: add instructions for running the agent on 1 problem set multiple times.</p>
+<p>TODO: add instructions for running the agent on 1 problem multiple times.</p>
+<p>Results are saved locally on your machine,</p>
+<div class="highlight"><pre><span></span><code>validator/jobs/job_run_&lt;job_id&gt;/reports/code4rena_lambowin_2025_02/report.json
+validator/jobs/job_run_&lt;job_id&gt;/reports/code4rena_lambowin_2025_02/scoring_summary.json
+</code></pre></div>
 <h2 id="troubleshooting">Troubleshooting</h2>
-<p>todo</p>
+<p>TODO</p>
 
 
 

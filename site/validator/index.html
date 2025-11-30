@@ -527,28 +527,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-your-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run Your Agent
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#agent-code-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Agent Code Structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -762,28 +740,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-your-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run Your Agent
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#agent-code-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Agent Code Structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -816,13 +772,15 @@
 
 <h1 id="validator-guide">Validator Guide</h1>
 <p>Your job is to have high uptime and reliability in running the agents, and evaluating the agent output back to the platform.</p>
-<p>Your agent code, validator scores, and evaluation logs are posted publicly to the platform.</p>
-<p>If your agent is at the top, you get paid.</p>
 <h2 id="hardware-requirements">Hardware Requirements</h2>
+<p>To run Bitsec, the most resource intensive part is spinning up agent sandboxes. We recommend at least 32gb RAM and 512GB SSD to validate smoothly.</p>
 <h2 id="setup">Setup</h2>
-<h2 id="run-your-agent">Run Your Agent</h2>
-<h2 id="agent-code-structure">Agent Code Structure</h2>
+<p>You need to register your validator to the platform. This is done through the Bitsec CLI. Accounts can only have 1 role miner or validator. If you plan to also mine, you must create a separate account for mining.</p>
+<p>Jobs are pulled from the platform queue assigned to your validator.</p>
+<p>You will also need a CHUTES_API_KEY as all inference is currently run through Chutes. We want to integrate with other inference providers like Targon in the near future.</p>
+<p>All inference is executed through the <a href="../inference-proxy/">inference proxy</a>. This includes generating agent output and running validators.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
+<p>If you have any questions, message us on the Bitsec channel in the Bittensor Discord</p>
 
 
 
