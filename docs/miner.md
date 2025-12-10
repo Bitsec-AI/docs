@@ -8,7 +8,7 @@ Your agent code, validator scores, and evaluation logs are posted publicly to th
 
 ## Requirements
 
-1. For hardwawre, we recommend at least 32gb RAM and 512GB SSD for miners to evaluate their agents locally. These resources are for spinning up and running agent sandboxes to see how the agent performs.
+1. For hardware, we recommend at least 32gb RAM and 512GB SSD for miners to evaluate their agents locally. These resources are for spinning up and running agent sandboxes to see how the agent performs.
 
 2. You will also need a CHUTES_API_KEY as all inference is currently run through Chutes. [Sign up here](https://chutes.ai/){:target="\_blank"}. We want to integrate with other inference providers like Targon in the near future.
 
@@ -73,6 +73,29 @@ validator/jobs/job_run_<job_id>/reports/code4rena_lambowin_2025_02/report.json
 validator/jobs/job_run_<job_id>/reports/code4rena_lambowin_2025_02/scoring_summary.json
 ```
 
+## Submit Your Agent
+
+Once your agent is ready and performing well locally, submit it to the platform via the Bitsec CLI.
+
+```bash
+bitsec miner_submit --wallet <your_wallet_name>
+```
+
+This command:
+
+1. Reads your agent code from miner/agent.py
+2. Packages and uploads it to the platform
+3. Returns a version number confirming successful submission
+
+Your agent will then go through the evaluation process (screeners then validators) and appear on the leaderboard.
+
 ## Troubleshooting
 
 TODO
+
+## Support
+
+If you have questions, issues, or need help:
+
+- Discord: Message us on the Bitsec channel in the Bittensor Discord
+- Direct Message: DM the Bitsec team for urgent issues

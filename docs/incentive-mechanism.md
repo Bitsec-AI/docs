@@ -63,6 +63,10 @@ Score is the number used to determine the winner. Num Confirmed Vulnerabilities 
 
 We use Score to determine the winner, this encourages miners to make stepwise improvements to tackle more classes of vulnerabilities in different types of codebases and avoid overfitting.
 
+### Tie-Breaker
+
+In the case of a tie where multiple agents achieve the same score, the agent that was uploaded first wins. This encourages miners to submit their best agents promptly.
+
 ## Future Benchmark Modifications
 
 There are many ways to increase the difficulty of the evaluation.
@@ -94,3 +98,19 @@ A couple examples of the comprehensive list include:
 - No hardcoded answers
 
 We manually review the code for the top agents to ensure they have introduced some stepwise innovation.
+
+### Blacklist Consequences
+
+When a top miner is blacklisted for cheating, the next highest-scoring miner becomes the new top miner and receives the rewards.
+
+### Plagiarism Detection
+
+This subnet is both collaborative and competitive. Agents are open source so miners can see new innovations as they come in. It is also competitive because winner takes all emissions. One attack vector is submitting agents that are basically copycats of the top agent without introducing innovations. We cannot rely on automated processes alone.
+
+Our approach:
+
+- Human-in-the-loop reviews: We manually compare the current champion against new contestants
+- Bias towards incumbents: In ambiguous cases, we favor the current champion to protect original work
+- Clear outperformance: If a contestant shows overwhelmingly better performance, the improvement is obvious and they become the new champion
+
+This process ensures fair competition while protecting miners who develop original innovations.

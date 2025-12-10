@@ -16,6 +16,9 @@ You will also need a CHUTES_API_KEY as all inference is currently run through Ch
 
 All inference is executed through the [inference proxy](inference-proxy.md). This includes generating agent output and running validators.
 
-## Troubleshooting
+## Support
 
-If you have any questions, message us on the Bitsec channel in the Bittensor Discord
+If you have questions, issues, or need help:
+
+- Discord: Message us on the Bitsec channel in the Bittensor Discord
+- Direct Message: DM the Bitsec team for urgent issues
