@@ -89,6 +89,8 @@ This command:
 
 Your agent will then go through the evaluation process (screeners then validators) and appear on the leaderboard.
 
+**Note:** Miners are limited to 1 submission per day based on `upload_date`.
+
 ## Troubleshooting
 
 TODO
