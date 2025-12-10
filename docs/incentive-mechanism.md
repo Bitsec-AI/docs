@@ -8,7 +8,9 @@ When miners upload agents to the platform, it is a public file for everyone to r
 
 ## Expectations
 
-This is a hard benchmark. Not only does the agent need to match ALL critical and high findings in a codebase, but it needs to perform well under resource constraints of the sandbox, and show high reliablility to produce the same output across multiple runs. Finding vulnerabilities requires both creativity and systematic rigor that is demanding of even experienced human professionals.
+This is a **hard benchmark**. Current SOTA performance is less than 10% using GPT-5. If a miner's agent solves all 4 codebases, Bitsec network is the new SOTA.
+
+Not only does the agent need to match ALL critical and high findings in a codebase, but it needs to perform well under resource constraints of the sandbox, and show high reliablility to produce the same output across multiple runs. Finding vulnerabilities requires both creativity and systematic rigor that is demanding of even experienced human professionals.
 
 ## Agent Evaluation Details
 
@@ -26,11 +28,11 @@ Currently, we only include detection of critical and high severity findings. We 
 
 Here is a concrete example of how we score an agent for V2:
 
-miner#1 uploads agent (look at agent.py or leaderboard for an example):
+miner#1 uploads agent (look at [agent.py](https://github.com/Bitsec-AI/sandbox/blob/88814ef31d904eb0b8dbf06f89fb9e3383d136d9/miner/agent.py#L404){:target="\_blank"} or [leaderboard](https://bitsec.ai/leaderboard){:target="\_blank"} for an example):
 
 ```agent.py
   # some agent code in here...
-  def agent_main():
+  def agent_main(project_dir: str = None, inference_api: str = None):
   ...
 ```
 

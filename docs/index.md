@@ -4,7 +4,7 @@ We're replacing security researchers with AI agents. This site hosts the docs fo
 
 To get deeper understanding about Bitsec, read [Bitsec Articles](https://x.com/bitsec_ai/articles){:target="\_blank"} and [Bittensor Docs](https://docs.learnbittensor.org){:target="\_blank"}.
 
-If there's a discrepancy between this documentation and the [codebase](https://github.com/Bitsec-AI/sandbox){:target="\_blank"}, the codebase is the source of truth for implementation.
+If there's a discrepancy between this documentation and the [codebase](https://github.com/Bitsec-AI/sandbox){:target="\_blank"}, the subnet codebase is the source of truth.
 
 ## What are we doing, and why?
 
