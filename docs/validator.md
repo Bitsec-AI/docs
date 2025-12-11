@@ -18,15 +18,15 @@ All inference is executed through the [inference proxy](inference-proxy.md). Thi
 
 ## Setup
 
-Install docker, git, Python (3.11.4 is what we test on), bittensor sdk
-Import hotkey into standard location
-Clone (Bitsec repo)[https://github.com/Bitsec-AI/sandbox]{:target="\_blank"}
-Make virtual env and activate
-Install requirements (uv pip install -r requirements.txt)
-Fill in .env using [.env-validator-example](https://github.com/Bitsec-AI/sandbox/blob/main/.env-validator-example){:target="\_blank"}
-Register validator: ./bitsec.py validator create --email email_address_here --name validator_name_here --wallet hot_wallet_name or contact us on the Bitsec channel in the Bittensor Discord
-Launch with ./bitsec.py validator run or docker compose -f docker-compose.validator.yaml up --build -d
-Check it's running with docker logs -f sandbox-validator-1
+- Install docker, git, Python (3.11.4 is what we test on), bittensor sdk
+- Import hotkey into standard location
+- Clone [Bitsec repo](https://github.com/Bitsec-AI/sandbox){:target="\_blank"}
+- Make virtual env and activate
+- Install requirements `uv pip install -r requirements.txt`
+- Fill in .env using [.env-validator-example](https://github.com/Bitsec-AI/sandbox/blob/main/.env-validator-example){:target="\_blank"}
+- Register validator: `./bitsec.py validator create --email email_address_here --name validator_name_here --wallet hot_wallet_name` or contact us on the Bitsec channel in the Bittensor Discord
+- Launch with `./bitsec.py validator run` or `docker compose -f docker-compose.validator.yaml up --build -d`
+- Check it's running with `docker logs -f sandbox-validator-1`
 
 ## Support
 
