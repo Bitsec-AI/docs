@@ -1,6 +1,10 @@
 # Miner Setup Guide
 
-Go through the steps to setup Bitsec and evaluate your first agent locally. (The miner local repo is coming soon ~12/5. If you want an early start, use [SCA-Bench](https://github.com/scabench-org/scabench){:target="\_blank"}, modify the BaselineRunner agent, and evaluate the agent performance in detecting all critical and high severity findings.)
+**Note:** Miners are limited to 1 submission per day based on `upload_date`.
+
+Go through the steps to setup Bitsec and evaluate your first agent locally using the [sandbox repo](https://github.com/Bitsec-AI/sandbox){:target="\_blank"}. Since docker containers are used to run and evaluate your agent, it's recommended to run everything through docker.
+
+If you just want to iterate quickly, use the Benchmark [SCA-Bench](https://github.com/scabench-org/scabench){:target="\_blank"}, modify the BaselineRunner agent, and evaluate the agent performance in detecting all critical and high severity findings.
 
 If your agent reliably scores higher than the current winner, register and submit the agent to our platform. If your agent is at the top, you get paid. Check out how the [incentive mechanism](incentive-mechanism.md) works.
 
@@ -20,11 +24,9 @@ All inference is executed through the inference proxy. This includes generating 
 
 ## Setup
 
-**note these docs reflect the changes after miner repo is updated, approx 12/4/2025**
+clone the repo https://github.com/Bitsec-AI/sandbox
 
-clone the repo https://github.com/Bitsec-AI/miner-local
-
-create a virtual environment and install dependencies
+create a virtual environment and install dependencies including docker
 
 ```bash
 uv venv --python 3.13
