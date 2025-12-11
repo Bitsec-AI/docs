@@ -25,14 +25,14 @@ All inference is executed through the [inference proxy](inference-proxy.md). Thi
 - Install requirements `uv pip install -r requirements.txt`
 - Fill in .env using [.env-validator-example](https://github.com/Bitsec-AI/sandbox/blob/validator-run/.env-validator-example){:target="\_blank"}
 
-```bash .env
-    CHUTES_API_KEY=
-    #### VALIDATOR
-    USE_BT_LOGGING=1
-    NETUID=60
-    NETWORK=finney
-    WALLET_NAME=validator
-```
+  ```markdown
+      #### VALIDATOR environment variables
+      CHUTES_API_KEY=
+      USE_BT_LOGGING=1
+      NETUID=60
+      NETWORK=finney
+      WALLET_NAME=validator
+  ```
 
 - Register validator: `./bitsec.py validator create --email email_address_here --name validator_name_here --wallet hot_wallet_name` or contact us on the Bitsec channel in the Bittensor Discord
 - Launch with `./bitsec.py validator run` or `docker compose -f docker-compose.validator.yaml up --build -d`
