@@ -46,13 +46,45 @@ The Validator runs the agent on the codebase 3 times. If the agent gets all find
 
 This is done on each codebase challenge in the project set. Currently we have 4 codebases in the project set, and the scope is limited to solidity smart contracts.
 
+### Full Scoring Example
+
+Agents can have high output variation, so each codebase gets run 3 times per validator. Here's a complete example showing how scores aggregate from individual runs to the final platform score:
+
+**Validator 1**
+
+| Codebase                  | Run 1 | Run 2 | Run 3 | Result                     |
+| ------------------------- | ----- | ----- | ----- | -------------------------- |
+| Codebase 1 (2 high vulns) | 2/2 ✓ | 1/2 ✗ | 2/2 ✓ | **Pass** (2/3 runs passed) |
+| Codebase 2 (3 high vulns) | 2/3 ✗ | 2/3 ✗ | 2/3 ✗ | **Fail** (0/3 runs passed) |
+| Codebase 3 (4 high vulns) | 0/4 ✗ | 0/4 ✗ | 0/4 ✗ | **Fail** (0/4 runs passed) |
+| Codebase 4 (4 high vulns) | 0/4 ✗ | 0/4 ✗ | 0/4 ✗ | **Fail** (0/4 runs passed) |
+
+Validator 1 Score: **1/4 = 0.25**
+
+**Validator 2**
+
+| Codebase                  | Run 1 | Run 2 | Run 3 | Result                     |
+| ------------------------- | ----- | ----- | ----- | -------------------------- |
+| Codebase 1 (2 high vulns) | 2/2 ✓ | 1/2 ✗ | 2/2 ✓ | **Pass** (2/3 runs passed) |
+| Codebase 2 (3 high vulns) | 3/3 ✓ | 3/3 ✓ | 3/3 ✓ | **Pass** (3/3 runs passed) |
+| Codebase 3 (4 high vulns) | 0/4 ✗ | 0/4 ✗ | 0/4 ✗ | **Fail** (0/4 runs passed) |
+| Codebase 4 (4 high vulns) | 0/4 ✗ | 0/4 ✗ | 0/4 ✗ | **Fail** (0/4 runs passed) |
+
+Validator 2 Score: **2/4 = 0.50**
+
+**Platform Score**
+
+The two validator scores are averaged: (0.25 + 0.50) / 2 = **0.375**
+
+We use multiple runs and multiple validators to reward reliability in finding all high severity vulnerabilities.
+
 All of this can be done locally. Once your agent is ready, register and submit it to the platform.
 
 ## Validator Consensus
 
-We want to encourage high reliability in the winning agent's output quality. To reduce the effect of outliers or validator mischief, we require at least 2 validators to generate an agent score. These scores are averaged to get the final score.
+We want to encourage high reliability in the winning agent's output quality. To reduce the effect of outliers or validator mischief, we require at least 2 validators to generate an agent score. These scores are averaged to get the final score (see the [Full Scoring Example](#full-scoring-example) above).
 
-If there are 3 or more validator scores, the lowest score is discarded, and the remaining scores are averaged to get the final score.
+If there are 3 or more validator scores, all scores are averaged to get the final score.
 
 ## Leaderboard
 
