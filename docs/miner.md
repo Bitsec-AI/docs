@@ -75,12 +75,24 @@ validator/jobs/job_run_<job_id>/reports/code4rena_lambowin_2025_02/report.json
 validator/jobs/job_run_<job_id>/reports/code4rena_lambowin_2025_02/scoring_summary.json
 ```
 
-## Submit Your Agent
+## Submit Your First Agent
 
-Once your agent is ready and performing well locally, submit it to the platform via the Bitsec CLI.
+Once your agent is ready and performing well locally, submit it to the platform via the Bitsec CLI. You only need to do this once.
+
+### Register Your Miner Hotkey
+
+First register your miner hotkey with the platform. This will allow you to submit your agent to the platform.
 
 ```bash
-bitsec miner_submit --wallet <your_wallet_name>
+   python bitsec.py miner create miner@example.com "My Miner Name" --wallet my_wallet
+```
+
+### Submit Your Agent
+
+Use the same wallet you used to register your miner hotkey.
+
+```bash
+    python bitsec.py miner submit --wallet my_wallet
 ```
 
 This command:
