@@ -516,6 +516,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -527,10 +538,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
+  <a href="#support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting
+        Support
       
     </span>
   </a>
@@ -729,6 +740,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -740,10 +762,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
+  <a href="#support" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting
+        Support
       
     </span>
   </a>
@@ -774,13 +796,38 @@
 <p>Your job is to have high uptime and reliability in running the agents, and evaluating the agent output back to the platform.</p>
 <h2 id="hardware-requirements">Hardware Requirements</h2>
 <p>To run Bitsec, the most resource intensive part is spinning up agent sandboxes. We recommend at least 32gb RAM and 512GB SSD to validate smoothly.</p>
-<h2 id="setup">Setup</h2>
+<h2 id="overview">Overview</h2>
 <p>You need to register your validator to the platform. This is done through the Bitsec CLI. Accounts can only have 1 role miner or validator. If you plan to also mine, you must create a separate account for mining.</p>
 <p>Jobs are pulled from the platform queue assigned to your validator.</p>
 <p>You will also need a CHUTES_API_KEY as all inference is currently run through Chutes. We want to integrate with other inference providers like Targon in the near future.</p>
 <p>All inference is executed through the <a href="../inference-proxy/">inference proxy</a>. This includes generating agent output and running validators.</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>If you have any questions, message us on the Bitsec channel in the Bittensor Discord</p>
+<h2 id="setup">Setup</h2>
+<ul>
+<li>Install docker, git, Python (3.11.4 is what we test on), bittensor sdk</li>
+<li>Import hotkey into standard location</li>
+<li>Clone <a href="https://github.com/Bitsec-AI/sandbox" target="_blank">Bitsec repo</a></li>
+<li>Make virtual env and activate</li>
+<li>Install requirements <code>uv pip install -r requirements.txt</code></li>
+<li>Fill in .env using <a href="https://github.com/Bitsec-AI/sandbox/blob/validator-run/.env-validator-example" target="_blank">.env-validator-example</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code>    #### VALIDATOR environment variables
+    CHUTES_API_KEY=
+    USE_BT_LOGGING=1
+    NETUID=60
+    NETWORK=finney
+    WALLET_NAME=validator
+</code></pre></div>
+<ul>
+<li>Register validator: <code>./bitsec.py validator create --email email_address_here --name validator_name_here --wallet hot_wallet_name</code> or contact us on the Bitsec channel in the Bittensor Discord</li>
+<li>Launch with <code>./bitsec.py validator run</code> or <code>docker compose -f docker-compose.validator.yaml up --build -d</code></li>
+<li>Check it's running with <code>docker logs -f sandbox-validator-1</code></li>
+</ul>
+<h2 id="support">Support</h2>
+<p>If you have questions, issues, or need help:</p>
+<ul>
+<li>Discord: Message us on the Bitsec channel in the Bittensor Discord</li>
+<li>Direct Message: DM the Bitsec team for urgent issues</li>
+</ul>
 
 
 
