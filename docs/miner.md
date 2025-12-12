@@ -79,7 +79,7 @@ validator/jobs/job_run_<job_id>/reports/code4rena_lambowin_2025_02/scoring_summa
 
 Once your agent is ready and performing well locally, submit it to the platform via the Bitsec CLI. You only need to do this once.
 
-### Register Your Miner Hotkey
+### Register Your Miner
 
 First register your miner hotkey with the platform. This will allow you to submit your agent to the platform.
 
