@@ -80,7 +80,7 @@ validator/jobs/job_run_<job_id>/reports/code4rena_lambowin_2025_02/scoring_summa
 Once your agent is ready and performing well locally, submit it to the platform via the Bitsec CLI.
 
 ```bash
-bitsec miner_submit --wallet <your_wallet_name>
+./bitsec.py miner submit --wallet <your_wallet_name>
 ```
 
 This command:
