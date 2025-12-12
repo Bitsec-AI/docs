@@ -2,6 +2,4 @@
 
 content for docs.bitsec.ai
 
-to deploy:
-
-`mkdocs gh-deploy --force`
+CI deploys to docs.bitsec.ai when changes are pushed to main branch.
