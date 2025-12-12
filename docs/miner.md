@@ -92,7 +92,7 @@ First register your miner hotkey with the platform. This will allow you to submi
 Use the same wallet you used to register your miner hotkey.
 
 ```bash
-    python bitsec.py miner submit --wallet my_wallet
+bitsec miner_submit --wallet <your_wallet_name>
 ```
 
 This command:
