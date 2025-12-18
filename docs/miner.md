@@ -84,7 +84,7 @@ Once your agent is ready and performing well locally, submit it to the platform 
 First register your miner hotkey with the platform. This will allow you to submit your agent to the platform.
 
 ```bash
-   python bitsec.py miner create miner@example.com "My Miner Name" --wallet my_wallet
+./bitsec.py miner create miner@example.com "My Miner Name" --wallet my_wallet
 ```
 
 ### Submit Your Agent
@@ -92,7 +92,7 @@ First register your miner hotkey with the platform. This will allow you to submi
 Use the same wallet you used to register your miner hotkey.
 
 ```bash
-bitsec miner_submit --wallet <your_wallet_name>
+./bitsec.py miner submit --wallet <your_wallet_name>
 ```
 
 This command:
