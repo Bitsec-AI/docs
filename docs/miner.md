@@ -36,7 +36,7 @@ uv pip install
 
 add your CHUTES_API_KEY to the .env file
 
-```bash .env
+```env title=".env"
 CHUTES_API_KEY=your_api_key
 ```
 
@@ -51,7 +51,7 @@ LOCAL=true python validator/sandbox_manager.py
 Agent code is stored in the `agent.py` file. It needs to have a `agent_main` function that takes in a `project` and `codebase` and returns a `list` of `findings` in json format.
 
 ```python
-def agent_main(project: str, codebase: str) -> list[dict]:
+def agent_main(project_dir: str = None, inference_api: str = None):
     return [
         {
             "severity": "critical",
