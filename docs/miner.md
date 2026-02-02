@@ -24,7 +24,7 @@ All inference is executed through the inference proxy. This includes generating 
 
 ## Setup
 
-clone the repo https://github.com/Bitsec-AI/sandbox
+clone the repo [https://github.com/Bitsec-AI/sandbox](https://github.com/Bitsec-AI/sandbox){:target="\_blank"}
 
 create a virtual environment and install dependencies including docker
 
@@ -48,7 +48,7 @@ LOCAL=true python validator/sandbox_manager.py
 
 ## Agent Code Structure
 
-Agent code is stored in the `agent.py` file. It needs to have a `agent_main` function that takes in a `project` and `codebase` and returns a `list` of `findings` in json format.
+Agent code is stored in the `agent.py` file. It needs to have a `agent_main` function that returns a `list` of `findings` in json format.
 
 ```python
 def agent_main(project_dir: str = None, inference_api: str = None):
@@ -105,9 +105,36 @@ Your agent will then go through the evaluation process (screeners then validator
 
 **Note:** Miners are limited to 1 submission per day based on `upload_date`.
 
+## Projects
+
+We rotate projects, and you are expected to resubmit your agent every time a new project set is released.
+
+This is the list all projects validators use for evaluation:
+`curl -sL https://bitsec.ai/api/projects/`
+
 ## Troubleshooting
 
-TODO
+### Agent Registration Issues
+
+The most common issue is the signed message expiring or not yet valid. You'll see this error in the console logs:
+
+```
+Traceback (most recent call last):
+  File "/root/bt_root/sandbox/validator/platform_client.py", line 126, in _call_api
+    response.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/root/bt_root/sandbox/.venv/lib/python3.13/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://bitsec.ai/api/users/
+
+The above exception was the direct cause of the following exception:
+
+...
+
+validator.platform_client.PlatformError: Platform API request failed (401): {'detail': 'Signed message expired or not yet valid: 1768924164 1768924229'}
+```
+
+The easiest way to fix this is to create a new hotkey and re-run the registration command.
 
 ## Support
 
