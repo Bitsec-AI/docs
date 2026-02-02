@@ -36,7 +36,7 @@ uv pip install
 
 add your CHUTES_API_KEY to the .env file
 
-```bash .env
+```env title=".env"
 CHUTES_API_KEY=your_api_key
 ```
 
@@ -51,7 +51,7 @@ LOCAL=true python validator/sandbox_manager.py
 Agent code is stored in the `agent.py` file. It needs to have a `agent_main` function that returns a `list` of `findings` in json format.
 
 ```python
-def agent_main() -> list[dict]:
+def agent_main(project_dir: str = None, inference_api: str = None):
     return [
         {
             "severity": "critical",
@@ -84,7 +84,7 @@ Once your agent is ready and performing well locally, submit it to the platform 
 First register your miner hotkey with the platform. This will allow you to submit your agent to the platform.
 
 ```bash
-   python bitsec.py miner create miner@example.com "My Miner Name" --wallet my_wallet
+./bitsec.py miner create miner@example.com "My Miner Name" --wallet my_wallet
 ```
 
 ### Submit Your Agent
@@ -92,7 +92,7 @@ First register your miner hotkey with the platform. This will allow you to submi
 Use the same wallet you used to register your miner hotkey.
 
 ```bash
-bitsec miner_submit --wallet <your_wallet_name>
+./bitsec.py miner submit --wallet <your_wallet_name>
 ```
 
 This command:
