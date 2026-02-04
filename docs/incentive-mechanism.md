@@ -142,6 +142,7 @@ A couple examples of the list of bannable behaviors (not comprehensive) include:
 - No binary files in agent code
 - No hardcoded answers
 - No hardsteering towards known solutions (detectable by public LLM prompt using Opus 4.5 on the eval problem set)
+- No submitting the same agent more than 3 times or it will be disqualified from winning.
 
 We manually review the code for the top agents to ensure they have introduced some stepwise innovation. We will move towards automated approval in the future.
 
@@ -164,6 +165,13 @@ This process ensures fair competition while protecting miners who develop origin
 
 ## Changelog
 
+### 2026-02-XX v2.3
+
+Issues:
+
+- Miner agents need additional capabilities for additional improvements, proxy - add tool use and reasoning model replies.
+- Logs are getting too large, add logging limits to the validator containers.
+
 ### 2026-02-XX v2.2
 
 Issues:
@@ -171,11 +179,9 @@ Issues:
 - 8 problems is not challenging enough, increased to 10 problems. Removed 2 easy problems and added 4 more.
 - Hardsteering detection change: use eval problem set (10 problems) when running hardsteering detection.
 - Validator inconsistencies may still happen, agents are graded on the average of the top 3 validator scores.
-- Agents are trying to brute force 500+ vulnerabilities, limit vulnerabilities tested by evaluator.
-- Check agents for similarity in the screening process.
-- Miners can not easily see their agents or how the competition is progressing, UX improvements...
-- Miner agents need additional capabilities for additional improvements, proxy - add tool use and reasoning model replies.
-- Logs are getting too large, add logging to the validator containers.
+- Agents are trying to brute force 500+ vulnerabilities, limit vulnerabilities tested by evaluator to a max of 100.
+- Check agents for similarity. If you're caught submitting essentially the same agent more than 3 times, your agent will be disqualified from winning.
+- Miners can not easily see their agents or how the competition is progressing, UX improvements... (might not finish before v2.2launch)
 
 ### 2026-01-30 v2.1
 
