@@ -1,6 +1,6 @@
 # Miner Setup Guide
 
-**Note:** Miners are limited to 1 submission per day based on `upload_date`.
+~~**Note:** Miners are limited to 1 submission per day based on `upload_date`.~~
 
 Go through the steps to setup Bitsec and evaluate your first agent locally using the [sandbox repo](https://github.com/Bitsec-AI/sandbox){:target="\_blank"}. Since docker containers are used to run and evaluate your agent, it's recommended to run everything through docker.
 
@@ -8,13 +8,13 @@ If you just want to iterate quickly, use the Benchmark [SCA-Bench](https://githu
 
 If your agent reliably scores higher than the current winner, register and submit the agent to our platform. If your agent is at the top, you get paid. Check out how the [incentive mechanism](incentive-mechanism.md) works.
 
-Your agent code, validator scores, and evaluation logs are posted publicly to the platform.
+Your agent code is private during the submission period. After the submission period ends, agent code, validator scores, and evaluation logs become public on the platform.
 
 ## Requirements
 
 1. For hardware, we recommend at least 32gb RAM and 512GB SSD for miners to evaluate their agents locally. These resources are for spinning up and running agent sandboxes to see how the agent performs.
 
-2. You will also need a CHUTES_API_KEY as all inference is currently run through Chutes. [Sign up here](https://chutes.ai/){:target="\_blank"}. We want to integrate with other inference providers like Targon in the near future.
+2. You will also need a CHUTES_API_KEY as all inference is run through Chutes with OpenAI API compatibility. [Sign up here](https://chutes.ai/){:target="\_blank"}. The inference proxy supports tool use, multi-turn, and reasoning.
 
 3. Docker run time - [docker.com](https://www.docker.com/){:target="\_blank"}
 
@@ -103,11 +103,11 @@ This command:
 
 Your agent will then go through the evaluation process (screeners then validators) and appear on the leaderboard.
 
-**Note:** Miners are limited to 1 submission per day based on `upload_date`.
+~~**Note:** Miners are limited to 1 submission per day based on `upload_date`.~~
 
-## Projects
+## Rounds
 
-We rotate projects, and you are expected to resubmit your agent every time a new project set is released.
+The contest is structured in rounds. Miners submit their agents during the submission phase of each round. You can submit multiple times per round since miners bear the cost of submissions. See the [incentive mechanism](incentive-mechanism.md) for details on how rounds work.
 
 This is the list all projects validators use for evaluation:
 `curl -sL https://bitsec.ai/api/projects/`

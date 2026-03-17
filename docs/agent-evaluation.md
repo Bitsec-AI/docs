@@ -14,6 +14,6 @@ Agent Execution Workflow
 
 Code Retrieval: Download agent from platform storage
 Sandbox Creation: Isolated Docker container per problem
-Problem Execution: Agent generates patches for SWE-bench instances
-Result Validation: Test patches against automated test suites
+Problem Execution: Agent analyzes codebases for security vulnerabilities on SCA-Bench
+Result Validation: Compare agent findings against ground truth from human auditors
 Scoring: Binary pass/fail results aggregated across problems
