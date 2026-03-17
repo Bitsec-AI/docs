@@ -2,9 +2,13 @@
 
 We want to reward miners who build better AI agents that find and fix exploits in software. As the platform performance improves, we should see this translate to better performance in our security product, more pay outs in bug bounty submissions, and audit challenges.
 
-Miners register and upload their agent.py file to the platform. Validators run the agents on a set of codebases and assess the agent output.
+The contest is structured in rounds. Each round has three parts:
 
-When miners upload agents to the platform, it is a public file for everyone to read, copy, and run. Validators pull new agent code to run on SCA-Bench, [Smart Contract Audit Benchmark](https://github.com/scabench-org/scabench){:target="\_blank"}, codebases to evaluate against the ground truth, which are findings from human auditors.
+1. **Submission phase.** Miners submit their best agents. Submissions are private during this phase, the evaluation set is known, and every submission is screened.
+2. **Evaluation phase.** All agents that pass screens get evaluated by validators on [SCA-Bench](https://github.com/scabench-org/scabench){:target="\_blank"} codebases against the ground truth, which are findings from human auditors. The winner is the top scoring agent. Tie-breakers are determined by number of confirmed vulnerabilities found (higher number wins).
+3. **Feedback and improvement.** We look at the data, agent performance, and miner feedback to see what needs to change before the next round.
+
+After the submission period ends, all agent code, scores, and evaluation logs become public.
 
 ## Expectations
 
@@ -14,11 +18,11 @@ Not only does the agent need to match ALL critical and high findings in a codeba
 
 ## Agent Evaluation Details
 
-After Agents are uploaded, they go through a multistep evaluation process.
+After agents are submitted, they go through a multistep evaluation process within each round.
 
 The first step is a preliminary set of checks in Screeners. Screeners run automated checks on the agent file. This looks to see if the python file is valid, is the right format, adheres to the right lines of code, etc.
 
-The second step is passing the agent to Validators to run and evaluate the agent. Validators spin up sandboxed environments and run the agent on a set of project codebases to produce a score. After the validator is done, the agent file, agent scores and evaluation logs are posted publicly to the platform.
+The second step is passing the agent to Validators to run and evaluate the agent. Validators spin up sandboxed environments and run the agent on a set of project codebases to produce a score. After the evaluation phase is complete, agent code, scores, and evaluation logs are made public on the platform.
 
 ## Agent Scoring
 
@@ -102,7 +106,7 @@ If there are 4 or more validator scores, the top 3 scores are averaged to get th
 Agents and their output are posted publicly to the platform. There are two pertinent scores:
 
 1. Score - The average of the validator scores which indicates number of code bases the agent successfully found all findings for.
-2. Num Confirmed Vulnerabilities - The percentage of findings the agent found correctly out of all findings in all the codebases.
+2. Num Confirmed Vulnerabilities - The number of findings the agent found correctly across all codebases.
 
 Score is the number used to determine the winner. Num Confirmed Vulnerabilities helps track platform performance over time, and it should be increasing as agents and models get better.
 
@@ -110,7 +114,7 @@ We use Score to determine the winner, this encourages miners to make stepwise im
 
 ### Tie-Breaker
 
-In the case of a tie where multiple agents achieve the same score, the agent that was uploaded first wins. This encourages miners to submit their best agents promptly.
+In the case of a tie where multiple agents achieve the same score, the agent with the higher number of confirmed vulnerabilities wins.
 
 ## Future Benchmark Modifications
 
@@ -125,11 +129,13 @@ There are many ways to increase the difficulty of the evaluation.
 - Add recommended fixes and patch code diffs for the exploits
 - Use more powerful models for evaluation
 
-There are also platform enhancements that can help boost agent performance.
+Platform enhancements that are now available:
 
-- Add tool use capabilities for advanced function calling
-- Add limited internal internet references
+- ~~Add tool use capabilities for advanced function calling~~ Tool use is now supported via the inference proxy
+- ~~Add limited internal internet references~~ Internet access is still restricted
 - Add static analysis outputs for potential analysis
+
+The inference proxy has full access to OpenAI API compatible calls through Chutes. Tool use, multi-turn, and reasoning are all supported. Ask us for agent coordination libraries and we'll add them.
 
 ## Stop Cheaters
 
@@ -142,7 +148,7 @@ A couple examples of the list of bannable behaviors (not comprehensive) include:
 - No binary files in agent code
 - No hardcoded answers
 - No hardsteering towards known solutions (detectable by public LLM prompt using Opus 4.5 on the eval problem set)
-- No submitting the same agent more than 3 times or it will be disqualified from winning.
+- ~~No submitting the same agent more than 3 times or it will be disqualified from winning.~~ Miners bear the cost of submissions, so this rule no longer applies.
 
 We manually review the code for the top agents to ensure they have introduced some stepwise innovation. We will move towards automated approval in the future.
 
@@ -152,18 +158,22 @@ When a top miner is blacklisted for cheating, the next highest-scoring miner bec
 
 ### Plagiarism Detection
 
-This subnet is both collaborative and competitive. Agents are open source so miners can see new innovations as they come in. It is also competitive because winner takes all emissions. One attack vector is submitting agents that are basically copycats of the top agent without introducing innovations. We cannot rely on automated processes alone.
-
-Our approach:
-
-- Human-in-the-loop reviews: We manually compare the current champion against new contestants
-- Add deterministic rules as needed: hardsteering is an example of a new rule, and we created a reliable process for detection
-- Bias towards incumbents: In ambiguous cases, we favor the current champion to protect original work
-- Clear outperformance: If a contestant shows overwhelmingly better performance, the improvement is obvious and they become the new champion
-
-This process ensures fair competition while protecting miners who develop original innovations.
+Since miners bear the cost of each submission, plagiarism is self-deterring — copying another agent without improvement costs the miner with no competitive advantage. The rounds-based structure naturally drives innovation and improvement with each round, as miners must adapt to evolving evaluation criteria and competition.
 
 ## Changelog
+
+### 2026-03-XX v3.0
+
+Changes:
+
+- Contest restructured into rounds with three phases: submission, evaluation, and feedback/improvement.
+- Submissions are private during the submission period, then fully public after the submission period ends.
+- Tie-breaker changed: winner is now determined by number of confirmed vulnerabilities found (higher number wins), instead of first-to-upload.
+- Inference proxy now has full access to OpenAI API compatible calls through Chutes. Tool use, multi-turn, and reasoning are all supported.
+- Agent coordination libraries available on request.
+- Submission limits removed — miners can submit multiple times per round since they bear the cost.
+- Plagiarism rules simplified — miners bear cost of copying, rounds drive innovation naturally.
+- First round specifics: emissions reduced to 10% for the first winner. Winners get a minimum winning period of at least 3 days.
 
 ### 2026-02-XX v2.3
 
