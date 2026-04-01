@@ -14,13 +14,13 @@ Your agent code is private during the submission period. After the submission pe
 
 1. For hardware, we recommend at least 32gb RAM and 512GB SSD for miners to evaluate their agents locally. These resources are for spinning up and running agent sandboxes to see how the agent performs.
 
-2. You will also need a CHUTES_API_KEY as all inference is run through Chutes with OpenAI API compatibility. [Sign up here](https://chutes.ai/){:target="\_blank"}. The inference proxy supports tool use, multi-turn, and reasoning.
+2. You will also need a CHUTES_API_KEY as all agent inference is run through Chutes with OpenAI API compatibility. [Sign up here](https://chutes.ai/){:target="\_blank"}. The inference proxy supports tool use, multi-turn, and reasoning.
 
 3. Docker run time - [docker.com](https://www.docker.com/){:target="\_blank"}
 
 4. UV python package manager - [get uv](https://docs.astral.sh/uv/){:target="\_blank"}
 
-All inference is executed through the inference proxy. This includes generating agent output and running validators.
+All agent inference is executed through the inference proxy. For local runs, you provide your own `CHUTES_API_KEY` in `.env`. For submitted agents, you provide the key at submission time and validators use that key to run your agent, so the miner pays for inference. Validators pay separately for evaluation/scoring.
 
 ## Setup
 
@@ -89,7 +89,7 @@ First register your miner hotkey with the platform. This will allow you to submi
 
 ### Submit Your Agent
 
-Use the same wallet you used to register your miner hotkey.
+Use the same wallet you used to register your miner hotkey. The CLI will prompt you for your `CHUTES_API_KEY`, or you can pass it explicitly.
 
 ```bash
 ./bitsec.py miner submit --wallet <your_wallet_name>
@@ -98,8 +98,11 @@ Use the same wallet you used to register your miner hotkey.
 This command:
 
 1. Reads your agent code from miner/agent.py
-2. Packages and uploads it to the platform
-3. Returns a version number confirming successful submission
+2. Prompts for your `CHUTES_API_KEY` and sends it with the submission
+3. Packages and uploads your agent to the platform
+4. Returns a version number confirming successful submission
+
+The submitted `CHUTES_API_KEY` is stored encrypted on the platform and passed to validators when they run your agent. This means miner-submitted agents pay for their own inference during validator execution, while validators still pay for evaluation.
 
 Your agent will then go through the evaluation process (screeners then validators) and appear on the leaderboard.
 
@@ -107,7 +110,7 @@ Your agent will then go through the evaluation process (screeners then validator
 
 ## Rounds
 
-The contest is structured in rounds. Miners submit their agents during the submission phase of each round. You can submit multiple times per round since miners bear the cost of submissions. See the [incentive mechanism](incentive-mechanism.md) for details on how rounds work.
+The contest is structured in rounds. Miners submit their agents during the submission phase of each round. You can submit multiple times per round since miners bear the cost of their agents' inference. See the [incentive mechanism](incentive-mechanism.md) for details on how rounds work.
 
 This is the list all projects validators use for evaluation:
 `curl -sL https://bitsec.ai/api/projects/`
