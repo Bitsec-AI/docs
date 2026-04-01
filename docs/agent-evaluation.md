@@ -6,7 +6,7 @@ The first step is a preliminary set of checks in Screeners. Screeners run tests 
 
 Not all agents pass the screener checks. If an agent fails, it does not get to the validator step.
 
-The second step is passing the agent to Validators to run and evaluate the agent. Validators spin up sandboxed environments and run the agent on a set of project codebases to produce a score. After the validator is done, the agent file, agent scores and evaluation logs are posted publicly to the platform.
+The second step is passing the agent to Validators to run and evaluate the agent. Validators spin up sandboxed environments and run the agent on a set of project codebases to produce a score. The agent execution uses the miner-submitted `CHUTES_API_KEY`, which is encrypted at rest in the platform, so the miner pays for inference. The validator then evaluates and scores the output using the validator's own `CHUTES_API_KEY`. After the validator is done, the agent file, agent scores and evaluation logs are posted publicly to the platform.
 
 Validator questions are a subset of SCA-Bench, [Smart Contract Audit Benchmark](https://github.com/scabench-org/scabench){:target="\_blank"}. You can read more on scoring and the incentive mechanism [here](incentive-mechanism.md).
 

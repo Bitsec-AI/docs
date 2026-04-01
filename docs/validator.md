@@ -12,9 +12,9 @@ You need to register your validator to the platform. This is done through the Bi
 
 Jobs are pulled from the platform queue assigned to your validator. The contest is structured in rounds — validators evaluate agents during the evaluation phase of each round.
 
-You will also need a CHUTES_API_KEY as all inference is run through Chutes with OpenAI API compatibility.
+You will also need a CHUTES_API_KEY for evaluation, which runs through Chutes with OpenAI API compatibility.
 
-All inference is executed through the [inference proxy](inference-proxy.md). This includes generating agent output and running validators.
+All inference is executed through the [inference proxy](inference-proxy.md). Submitted miners provide their own `CHUTES_API_KEY`, which is encrypted at rest in the platform, and validators use that key to run the miner agent inside the sandbox. Validators still need their own `CHUTES_API_KEY` to score and evaluate the agent output.
 
 ## Setup
 
