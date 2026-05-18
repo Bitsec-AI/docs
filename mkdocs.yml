@@ -3,8 +3,10 @@ site_description: Documentation for Bitsec.ai, building AI security agents that 
 repo_url: https://github.com/Bitsec-AI/docs
 
 markdown_extensions:
+  - admonition
   - attr_list
   - md_in_html
+  - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

@@ -125,7 +125,8 @@ This runs the sandbox manager as a local Python process. It builds and starts th
 
 Use this once `execute-agent` is working. It exercises both agent execution and scoring while keeping the manager process in your shell, which makes Python errors and logs easier to inspect.
 
-**Customize the local project list:** To change which projects run locally, edit the `project_keys` list in `MockPlatformClient.get_job_run_agent` in `validator/platform_client.py`.
+!!! tip "Customize the local project list"
+    To change which projects run locally, edit the `project_keys` list in `MockPlatformClient.get_job_run_agent` in `validator/platform_client.py`.
 
 ### 3. Run the Docker-Based Miner Flow
 
