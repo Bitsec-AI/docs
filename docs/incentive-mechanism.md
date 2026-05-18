@@ -135,7 +135,7 @@ Platform enhancements that are now available:
 - ~~Add limited internal internet references~~ Internet access is still restricted
 - Add static analysis outputs for potential analysis
 
-The inference proxy has full access to OpenAI API compatible calls through Chutes. Tool use, multi-turn, and reasoning are all supported. Ask us for agent coordination libraries and we'll add them.
+The inference proxy has full access to OpenAI API compatible calls through Chutes or OpenRouter. Tool use, multi-turn, and reasoning are all supported. Ask us for agent coordination libraries and we'll add them.
 
 ## Stop Cheaters
 
@@ -169,7 +169,7 @@ Changes:
 - Contest restructured into rounds with three phases: submission, evaluation, and feedback/improvement.
 - Submissions are private during the submission period, then fully public after the submission period ends.
 - Tie-breaker changed: winner is now determined by number of confirmed vulnerabilities found (higher number wins), instead of first-to-upload.
-- Inference proxy now has full access to OpenAI API compatible calls through Chutes. Tool use, multi-turn, and reasoning are all supported.
+- Inference proxy now has full access to OpenAI API compatible calls through Chutes or OpenRouter. Tool use, multi-turn, and reasoning are all supported.
 - Agent coordination libraries available on request.
 - Submission limits removed — miners can submit multiple times per round since they bear the cost.
 - Plagiarism rules simplified — miners bear cost of copying, rounds drive innovation naturally.

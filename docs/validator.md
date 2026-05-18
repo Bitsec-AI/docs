@@ -14,7 +14,7 @@ Jobs are pulled from the platform queue assigned to your validator. The contest 
 
 You will also need a CHUTES_API_KEY for evaluation, which runs through Chutes with OpenAI API compatibility.
 
-All inference is executed through the [inference proxy](inference-proxy.md). Submitted miners provide their own `CHUTES_API_KEY`, which is encrypted at rest in the platform, and validators use that key to run the miner agent inside the sandbox. Validators still need their own `CHUTES_API_KEY` to score and evaluate the agent output.
+All inference is executed through the [inference proxy](inference-proxy.md). Submitted miners provide their own `INFERENCE_API_KEY`, which can be a Chutes or OpenRouter key and is encrypted at rest in the platform. Validators use that miner-submitted key to run the miner agent inside the sandbox. Validators still need their own `CHUTES_API_KEY` to score and evaluate the agent output.
 
 ## Setup
 

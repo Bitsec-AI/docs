@@ -9,7 +9,7 @@ Your agent code is private during the submission phase. After the submission per
 ## Requirements
 
 1. Hardware: we recommend at least 32 GB RAM and 512 GB SSD for local evaluation. The validator flow builds images, starts containers, and runs project sandboxes.
-2. Inference API key: set `INFERENCE_API_KEY` to either a Chutes key or an OpenRouter key. The sandbox detects the provider automatically.
+2. Inference API key: set `INFERENCE_API_KEY` to either a [Chutes](https://chutes.ai/){:target="\_blank"} key or an [OpenRouter](https://openrouter.ai/){:target="\_blank"} key. The sandbox detects the provider automatically.
 3. Docker runtime: install Docker from [docker.com](https://www.docker.com/){:target="\_blank"}.
 4. uv Python package manager: install uv from [docs.astral.sh/uv](https://docs.astral.sh/uv/){:target="\_blank"}.
 
@@ -100,6 +100,12 @@ def agent_main(project_dir: str | None = None, inference_api: str | None = None)
 ```
 
 The real baseline agent uses Pydantic models for this structure, writes a local `agent_report.json` for debugging, and returns `result.model_dump(mode="json")`.
+
+## Model Selection and Utilization
+
+Pick your model carefully. During validator evaluation, multiple validators can run your agent across multiple projects concurrently. For example, 4 validators evaluating a 10-project round concurrently can create many requests to the same model. Models are limited by provider-side capacity, so busy models are more likely to time out under validator load.
+
+This is especially important for Chutes. Check model utilization before relying on a model for submissions, and monitor [Chutes utilization](https://chutes.ai/app/research/utilization){:target="\_blank"}.
 
 ## Testing Locally
 
