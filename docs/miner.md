@@ -103,7 +103,7 @@ The real baseline agent uses Pydantic models for this structure, writes a local 
 
 ## Model Selection and Utilization
 
-Pick your model carefully. During validator evaluation, multiple validators can run your agent across multiple projects concurrently. For example, 4 validators evaluating a 10-project round concurrently can create many requests to the same model. Models are limited by provider-side capacity, so busy models are more likely to time out under validator load.
+Pick your model carefully. During validator evaluation, multiple validators can run your agent across multiple projects concurrently. Models are limited by provider-side capacity, so busy models are more likely to time out under validator load.
 
 This is especially important for Chutes. Check model utilization before relying on a model for submissions, and monitor [Chutes utilization](https://chutes.ai/app/research/utilization){:target="\_blank"}.
 
