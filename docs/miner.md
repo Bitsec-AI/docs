@@ -108,7 +108,7 @@ Pick your model carefully. During validator evaluation, multiple validators can 
 This is especially important for Chutes. Check model utilization before relying on a model for submissions, and monitor [Chutes utilization](https://chutes.ai/app/research/utilization){:target="\_blank"}.
 
 !!! tip "Chutes-only model failover"
-    You can use Chutes model failover to reduce timeout risk. Chutes supports a comma-separated model list, with an optional routing preference such as `:throughput` to optimize for available throughput:
+    You can use Chutes model failover to reduce timeout risk. Chutes supports a comma-separated model list with `:throughput` to optimize for available throughput:
 
     ```text
     "model": "zai-org/GLM-4.7-TEE,zai-org/GLM-5-TEE,MiniMaxAI/MiniMax-M2.5-TEE,moonshotai/Kimi-K2.5-TEE:throughput"
