@@ -42,6 +42,7 @@ nav:
   - Get Started:
       - Introduction: index.md
       - Incentive Mechanism: incentive-mechanism.md
+  - Changelog: changelog.md
   - Setup Guides:
       - Miner Guide: miner.md
       - Validator Guide: validator.md
