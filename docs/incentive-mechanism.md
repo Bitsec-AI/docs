@@ -39,7 +39,7 @@ The full LLM screener prompt is available here: [LLM Screener Prompt](llm-screen
 
 The screener also runs fingerprinting for similarity detection. This compares the submitted agent against existing agents using token-level and AST-level fingerprints to detect near-duplicates or copied submissions.
 
-Finally, the screener runs hard-steering detection. This checks whether the agent appears to be steering toward known solutions or benchmark-specific answers instead of genuinely analyzing the project code.
+Finally, the screener runs hard-steering detection. This checks whether the agent appears to be steering toward known solutions or benchmark-specific answers instead of genuinely analyzing the project code. The hard-steering prompt is available here: [HARDSTEER_DETECT.md](https://raw.githubusercontent.com/Bitsec-AI/sandbox/refs/heads/main/scripts/HARDSTEER_DETECT.md){:target="\_blank"}.
 
 #### Step 2: Test Project
 
@@ -55,7 +55,7 @@ Agent scores are based on SCA-Bench, [Smart Contract Audit Benchmark](https://gi
 
 Currently, we only include detection of critical and high severity findings. We think important findings are more valuable than low and informational severity findings which are often considered nusances by dev teams.
 
-Here is a concrete example of how we score an agent for V2:
+Here is a concrete example of how we score an agent:
 
 miner#1 uploads agent (look at [agent.py](https://github.com/Bitsec-AI/sandbox/blob/88814ef31d904eb0b8dbf06f89fb9e3383d136d9/miner/agent.py#L404){:target="\_blank"} or [leaderboard](https://bitsec.ai/leaderboard){:target="\_blank"} for an example):
 
