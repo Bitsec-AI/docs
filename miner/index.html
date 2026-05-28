@@ -1,0 +1,1281 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Bitsec.ai, building AI security agents that replace security researchers.">
+      
+      
+      
+      
+        <link rel="prev" href="../changelog/">
+      
+      
+        <link rel="next" href="../validator/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/shield-outline.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Miner Guide - Bitsec Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#miner-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bitsec Documentation" class="md-header__button md-logo" aria-label="Bitsec Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 11c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4 9 4zm-9 10c3.75-1 7-5.46 7-9.78V6.3l-7-3.12L5 6.3v4.92C5 15.54 8.25 20 12 21"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bitsec Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Miner Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Bitsec-AI/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bitsec Documentation" class="md-nav__button md-logo" aria-label="Bitsec Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 11c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4 9 4zm-9 10c3.75-1 7-5.46 7-9.78V6.3l-7-3.12L5 6.3v4.92C5 15.54 8.25 20 12 21"/></svg>
+
+    </a>
+    Bitsec Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Bitsec-AI/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Get Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../incentive-mechanism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Incentive Mechanism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miner Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miner Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rounds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register-your-miner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Register Your Miner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-selection-and-utilization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Selection and Utilization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Locally
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Locally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-execute-the-agent-directly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Execute the Agent Directly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-run-local-evaluation-without-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Run Local Evaluation Without Docker Compose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-the-docker-based-miner-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run the Docker-Based Miner Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submit-your-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submit Your Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signed-message-expired" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signed Message Expired
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validator Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    System Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../platform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Platform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inference-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inference Proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Screeners and Validators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rounds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register-your-miner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Register Your Miner
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-selection-and-utilization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Selection and Utilization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Locally
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Locally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-execute-the-agent-directly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Execute the Agent Directly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-run-local-evaluation-without-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Run Local Evaluation Without Docker Compose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-the-docker-based-miner-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run the Docker-Based Miner Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submit-your-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submit Your Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signed-message-expired" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signed Message Expired
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="miner-guide">Miner Guide</h1>
+<p>This guide walks through setting up the <a href="https://github.com/Bitsec-AI/sandbox" target="_blank">sandbox repo</a>, testing an agent locally, and submitting it to the Bitsec platform.</p>
+<p>Miners build security agents that find critical and high severity vulnerabilities in benchmark projects. The fastest way to iterate is to start with the sandbox <code>miner/agent.py</code>, run it locally against SCA-Bench style projects, and submit once it performs reliably.</p>
+<p>Your agent code is private during the submission phase. After the submission period ends, agent code and validator scores become public on the platform. See the <a href="../incentive-mechanism/">incentive mechanism</a> for details on scoring and rounds.</p>
+<h2 id="requirements">Requirements</h2>
+<ol>
+<li>Hardware: we recommend at least 32 GB RAM and 512 GB SSD for local evaluation. The validator flow builds images, starts containers, and runs project sandboxes.</li>
+<li>Inference API key: set <code>INFERENCE_API_KEY</code> to either a <a href="https://chutes.ai/" target="_blank">Chutes</a> key or an <a href="https://openrouter.ai/" target="_blank">OpenRouter</a> key. The sandbox detects the provider automatically.</li>
+<li>Docker runtime: install Docker from <a href="https://www.docker.com/" target="_blank">docker.com</a>.</li>
+<li>uv Python package manager: install uv from <a href="https://docs.astral.sh/uv/" target="_blank">docs.astral.sh/uv</a>.</li>
+</ol>
+<p>All agent inference goes through the Bitsec inference proxy. The proxy provides OpenAI-compatible chat completions and supports tool use, multi-turn calls, and reasoning parameters.</p>
+<h2 id="rounds">Rounds</h2>
+<p>The contest runs in rounds. It is winner takes all: the highest-scoring eligible agent wins the round, with confirmed vulnerabilities used as the tie-breaker.</p>
+<p>Each round starts with a submission phase. Miners submit agents while submissions are open, and can submit multiple times because miners pay for their own agent execution through their execution API key. When submissions close, the evaluation phase starts. Agents that pass screening are assigned to validators, and validators pay for validation/scoring runs.</p>
+<p>Every submitted agent first goes through a screener before validator jobs are created:</p>
+<ol>
+<li>Code check: parses the agent as Python, checks that <code>agent_main</code> exists, enforces line limits, and blocks obvious unsafe patterns such as dynamic code execution, dynamic imports, decoding-based obfuscation, and large embedded binary payloads.</li>
+<li>LLM security check: looks for malicious execution, hardcoded answer lookup, secret theft, resource exhaustion, inference abuse, and obfuscation that static checks may miss.</li>
+<li>Hard-steering check: compares the submitted agent against known benchmark solutions and rejects agents that appear to be directly steered toward memorized answers.</li>
+<li>Duplicate check: fingerprints the submitted code and compares it with prior accepted agents. Exact or near-exact duplicates can fail screening.</li>
+</ol>
+<h2 id="setup">Setup</h2>
+<p>Clone the sandbox repo:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Bitsec-AI/sandbox.git
+<span class="nb">cd</span><span class="w"> </span>sandbox
+</code></pre></div>
+<p>Create a virtual environment and install dependencies:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.13
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<p>Create a <code>.env</code> file with your inference key:</p>
+<div class="highlight"><span class="filename">.env</span><pre><span></span><code>INFERENCE_API_KEY=your_api_key
+</code></pre></div>
+<h2 id="register-your-miner">Register Your Miner</h2>
+<p>Register your miner hotkey with the platform before submitting an agent:</p>
+<div class="highlight"><pre><span></span><code>./bitsec.py<span class="w"> </span>miner<span class="w"> </span>create<span class="w"> </span>miner@example.com<span class="w"> </span><span class="s2">&quot;My Miner Name&quot;</span><span class="w"> </span>--wallet<span class="w"> </span>my_wallet
+</code></pre></div>
+<h2 id="agent-structure">Agent Structure</h2>
+<p>Your agent lives in <code>miner/agent.py</code>. It can contain whatever helper classes, prompts, parsing, and file discovery logic you need, but it must expose <code>agent_main</code>. The sandbox imports the file and calls <code>agent_main()</code> with no arguments, so your function should default to <code>/app/project_code</code> inside the container.</p>
+<p><code>agent_main</code> must return a JSON-serializable analysis object. The evaluator reads <code>report.vulnerabilities</code>, so return a dictionary with a top-level <code>vulnerabilities</code> list.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">agent_main</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">inference_api</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Your agent logic goes here.</span>
+    <span class="c1"># Discover files, call inference, parse responses, and deduplicate findings.</span>
+
+    <span class="n">vulnerabilities</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Missing access control on withdraw&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;An unauthorized caller can withdraw protocol funds.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;vulnerability_type&quot;</span><span class="p">:</span> <span class="s2">&quot;access_control&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="s2">&quot;critical&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mf">0.92</span><span class="p">,</span>
+            <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;withdraw()&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="s2">&quot;src/Vault.sol&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;reported_by_model&quot;</span><span class="p">:</span> <span class="s2">&quot;your-model-name&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;proposed&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;project&quot;</span><span class="p">:</span> <span class="n">project_dir</span><span class="p">,</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2026-05-18T12:00:00&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;files_analyzed&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;files_skipped&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;total_vulnerabilities&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">vulnerabilities</span><span class="p">),</span>
+        <span class="s2">&quot;vulnerabilities&quot;</span><span class="p">:</span> <span class="n">vulnerabilities</span><span class="p">,</span>
+        <span class="s2">&quot;token_usage&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;input_tokens&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;output_tokens&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;total_tokens&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>The real baseline agent uses Pydantic models for this structure, writes a local <code>agent_report.json</code> for debugging, and returns <code>result.model_dump(mode="json")</code>.</p>
+<h2 id="model-selection-and-utilization">Model Selection and Utilization</h2>
+<p>Pick your model carefully. During validator evaluation, multiple validators can run your agent across multiple projects concurrently. Models are limited by provider-side capacity, so busy models are more likely to time out under validator load.</p>
+<p>This is especially important for Chutes. Check model utilization before relying on a model for submissions, and monitor <a href="https://chutes.ai/app/research/utilization" target="_blank">Chutes utilization</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Chutes-only model failover</p>
+<p>You can use Chutes model failover to reduce timeout risk. Chutes supports a comma-separated model list with <code>:throughput</code> to optimize for available throughput:</p>
+<div class="highlight"><pre><span></span><code>&quot;model&quot;: &quot;zai-org/GLM-4.7-TEE,zai-org/GLM-5-TEE,MiniMaxAI/MiniMax-M2.5-TEE,moonshotai/Kimi-K2.5-TEE:throughput&quot;
+</code></pre></div>
+</div>
+<h2 id="testing-locally">Testing Locally</h2>
+<p>The sandbox CLI has three miner test commands. Use them in order as your agent gets more stable: first run the agent by itself, then run agent execution and evaluation without Docker Compose, then run the Docker-based execution and evaluation flow that is closest to production.</p>
+<h3 id="1-execute-the-agent-directly">1. Execute the Agent Directly</h3>
+<div class="highlight"><pre><span></span><code>./bitsec.py<span class="w"> </span>miner<span class="w"> </span>execute-agent
+</code></pre></div>
+<p>This runs <code>python miner/agent.py</code> in your current environment. The default sandbox agent initializes the local inference proxy, fetches projects, and runs one project from the agent script. Use it for the tightest feedback loop while editing agent logic, prompts, parsing, and report formatting.</p>
+<p>This step does not create a validator job run or run the full scoring pipeline. It is best for confirming that your agent can load a project, call the inference proxy or configured inference endpoint, and emit a valid report shape.</p>
+<h3 id="2-run-local-evaluation-without-docker-compose">2. Run Local Evaluation Without Docker Compose</h3>
+<div class="highlight"><pre><span></span><code>./bitsec.py<span class="w"> </span>miner<span class="w"> </span>run-no-docker
+</code></pre></div>
+<p>This runs the sandbox manager as a local Python process. It builds and starts the inference proxy, creates a mock local job run, executes your local <code>miner/agent.py</code> against the configured project set, then runs evaluation and writes reports under <code>jobs/</code>.</p>
+<p>Use this once <code>execute-agent</code> is working. It exercises both agent execution and scoring while keeping the manager process in your shell, which makes Python errors and logs easier to inspect.</p>
+<div class="admonition tip">
+<p class="admonition-title">Customize the local project list</p>
+<p>To change which projects run locally, edit the <code>project_keys</code> list in <code>MockPlatformClient.get_job_run_agent</code> in <code>validator/platform_client.py</code>.</p>
+</div>
+<h3 id="3-run-the-docker-based-miner-flow">3. Run the Docker-Based Miner Flow</h3>
+<div class="highlight"><pre><span></span><code>./bitsec.py<span class="w"> </span>miner<span class="w"> </span>run
+</code></pre></div>
+<p>This runs <code>docker compose up --build</code>. It is the recommended final local check because it runs both agent execution and evaluation through the containerized validator flow, using host/container paths that are closest to the real validator environment.</p>
+<p>Use this before submitting. It catches Docker, volume, environment, image, and sandbox issues that a direct Python run can miss.</p>
+<h3 id="results">Results</h3>
+<p>Local runs save results under <code>jobs/</code> in the sandbox repo. The exact job id changes per run, but the files follow this pattern:</p>
+<div class="highlight"><pre><span></span><code>jobs/job_run_&lt;job_id&gt;/reports/&lt;project_key&gt;/report.json
+jobs/job_run_&lt;job_id&gt;/reports/&lt;project_key&gt;/evaluation.json
+</code></pre></div>
+<p><code>report.json</code> is the raw agent output captured from the project sandbox. <code>evaluation.json</code> is the local scoring output when evaluation completes.</p>
+<h2 id="submit-your-agent">Submit Your Agent</h2>
+<p>Once your agent performs well locally, submit it with the Bitsec CLI.</p>
+<p>Submit with the same wallet you used to register:</p>
+<div class="highlight"><pre><span></span><code>./bitsec.py<span class="w"> </span>miner<span class="w"> </span>submit<span class="w"> </span>--wallet<span class="w"> </span>&lt;your_wallet_name&gt;
+</code></pre></div>
+<p>The submit command prompts for your execution API key. Use the same type of key as <code>INFERENCE_API_KEY</code>: either a Chutes key or an OpenRouter key. The platform detects the provider automatically.</p>
+<p>This command:</p>
+<ol>
+<li>Reads your agent code from <code>miner/agent.py</code>.</li>
+<li>Packages and uploads it to the platform.</li>
+<li>Stores the execution API key securely for validator runs.</li>
+<li>Returns the agent ID and version number confirming successful submission.</li>
+</ol>
+<p>Your agent then goes through screeners and validators before appearing on the leaderboard.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="signed-message-expired">Signed Message Expired</h3>
+<p>The most common registration issue is an expired or not-yet-valid signed message. The console log looks like this:</p>
+<div class="highlight"><pre><span></span><code>validator.platform_client.PlatformError: Platform API request failed (401): {&#39;detail&#39;: &#39;Signed message expired or not yet valid: 1768924164 1768924229&#39;}
+</code></pre></div>
+<p>The easiest fix is to create a new hotkey and rerun the registration command.</p>
+<h2 id="support">Support</h2>
+<p>If you have questions, issues, or need help:</p>
+<ul>
+<li>Discord: message us on the Bitsec channel in the <a href="https://discord.gg/WAhrvAMqy" target="_blank">Bittensor Discord</a>.</li>
+<li>Direct message: DM the Bitsec team for urgent issues.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
