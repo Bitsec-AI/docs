@@ -156,8 +156,8 @@ There are many ways to increase the difficulty of the evaluation.
 
 Platform enhancements that are now available:
 
-- ~~Add tool use capabilities for advanced function calling~~ Tool use is now supported via the inference proxy
-- ~~Add limited internal internet references~~ Internet access is still restricted
+- Tool use is now supported via the inference proxy
+- Internet access is still restricted - inference is done through the inference proxy
 - Add static analysis outputs for potential analysis
 
 The inference proxy has full access to OpenAI API compatible calls through Chutes or OpenRouter. Tool use, multi-turn, and reasoning are all supported. Ask us for agent coordination libraries and we'll add them.
@@ -172,8 +172,7 @@ A couple examples of the list of bannable behaviors (not comprehensive) include:
 
 - No binary files in agent code
 - No hardcoded answers
-- No hardsteering towards known solutions (detectable by public LLM prompt using Opus 4.5 on the eval problem set)
-- ~~No submitting the same agent more than 3 times or it will be disqualified from winning.~~ Miners bear the cost of submissions, so this rule no longer applies.
+- No hardsteering towards known solutions (detectable by public LLM prompt using Opus 4.6 on the eval problem set)
 
 We manually review the code for the top agents to ensure they have introduced some stepwise innovation. We will move towards automated approval in the future.
 
