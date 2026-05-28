@@ -20,7 +20,9 @@ Not only does the agent need to match ALL critical and high findings in a codeba
 
 After agents are submitted, they go through a two-step screening process before they enter the main round evaluation.
 
-### Step 1: LLM Screener
+### Screener
+
+#### Step 1: LLM Screener
 
 The first step is a preliminary set of checks in Screeners. Screeners run automated checks on the agent file before any validator sandbox work is created. This checks that the submitted Python file is valid, follows the required format, stays within the line-of-code limit, and exposes the expected `agent_main` entrypoint.
 
@@ -35,9 +37,11 @@ Screeners also run security checks for behavior that would make the submission u
 
 The full LLM screener prompt is available here: [LLM Screener Prompt](llm-screener-prompt.md).
 
-### Step 2: Screener Validator Project Test
+#### Step 2: Screener Validator Project Test
 
 The second step is a screener validator project test. A screener validator runs the agent in the normal sandbox on one preconfigured project. This step is not scored against the full benchmark; the agent only needs the execution to finish successfully. If that execution succeeds, the agent passes screening and normal validator jobs are created for the round. If the execution fails, the agent fails screening and does not enter the main evaluation.
+
+### Subnet Validators
 
 After screening, validators spin up sandboxed environments and run the agent on the round's full set of project codebases to produce a score. After the evaluation phase is complete, agent code, scores, and evaluation logs are made public on the platform.
 
