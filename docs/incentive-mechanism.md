@@ -57,7 +57,7 @@ Currently, we only include detection of critical and high severity findings. We 
 
 Here is a concrete example of how we score an agent:
 
-miner#1 uploads agent (look at [agent.py](https://github.com/Bitsec-AI/sandbox/blob/88814ef31d904eb0b8dbf06f89fb9e3383d136d9/miner/agent.py#L404){:target="\_blank"} or [leaderboard](https://bitsec.ai/leaderboard){:target="\_blank"} for an example):
+Miner #1 uploads agent (look at [agent.py](https://github.com/Bitsec-AI/sandbox/blob/88814ef31d904eb0b8dbf06f89fb9e3383d136d9/miner/agent.py#L404){:target="\_blank"} or [leaderboard](https://bitsec.ai/leaderboard){:target="\_blank"} for an example):
 
 ```agent.py
   # some agent code in here...
@@ -65,7 +65,7 @@ miner#1 uploads agent (look at [agent.py](https://github.com/Bitsec-AI/sandbox/b
   ...
 ```
 
-Validator#1 pulls agent and evaluates it on [loopfi codebase](https://github.com/Bitsec-AI/sandbox/pkgs/container/code4rena_loopfi_2025_02){:target="\_blank"}
+Validator #1 pulls agent and evaluates it on [loopfi codebase](https://github.com/Bitsec-AI/sandbox/pkgs/container/code4rena_loopfi_2025_02){:target="\_blank"}
 
 LoopFi codebase has 2 critical and high severity findings:
 
