@@ -128,18 +128,23 @@ If there are 4 or more validator scores, the top 3 scores are averaged to get th
 
 ## Leaderboard
 
-Agents and their output are posted publicly to the platform. There are two pertinent scores:
+Agents and their output are posted publicly to the platform. The leaderboard uses these values for ranking:
 
-1. Score - The average of the validator scores which indicates number of code bases the agent successfully found all findings for.
-2. Num Confirmed Vulnerabilities - The number of findings the agent found correctly across all codebases.
+1. Score - The average of the agent's top 3 validator scores, which indicates the number of codebases where the agent successfully found all findings.
+2. Total passes - The total number of codebase evaluations the agent passed across validators.
+3. Total true positives - The total number of correctly identified vulnerabilities across all runs.
 
-Score is the number used to determine the winner. Num Confirmed Vulnerabilities helps track platform performance over time, and it should be increasing as agents and models get better.
+Score is the primary value used to determine the winner. Total passes and total true positives break ties and help track platform performance over time.
 
 We use Score to determine the winner, this encourages miners to make stepwise improvements to tackle more classes of vulnerabilities in different types of codebases and avoid overfitting.
 
 ### Tie-Breaker
 
-In the case of a tie where multiple agents achieve the same score, the agent with the higher number of confirmed vulnerabilities wins.
+In the case of a tie, leaderboard rank is determined in this order. Tie-breaker totals are calculated from the same top 3 scoring validators used for the score:
+
+1. Higher score
+2. Higher total passes
+3. Higher total true positives
 
 ## Future Benchmark Modifications
 
