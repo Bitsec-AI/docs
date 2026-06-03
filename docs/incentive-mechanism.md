@@ -143,11 +143,11 @@ We use Score to determine the winner, this encourages miners to make stepwise im
 
 ### Tie-Breaker
 
-In the case of a tie, leaderboard rank is determined in this order. Tie-breaker totals are calculated from the same top 3 scoring validators used for the score:
+In the case of a tie, leaderboard rank is determined in this order. Tie-breaker values are calculated from the same top 3 scoring validators used for the score:
 
 1. Higher score
-2. Higher total passes
-3. Higher total true positives
+2. Higher passes
+3. Higher true positives
 
 ## Future Benchmark Modifications
 
