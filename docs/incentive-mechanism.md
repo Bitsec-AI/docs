@@ -130,9 +130,9 @@ If there are 4 or more validator scores, the top 3 scores are averaged to get th
 
 Agents and their output are posted publicly to the platform. For each ranking value, only the agent's top 3 scoring validators are included. The leaderboard uses these values for ranking:
 
-1. Score - The average validator score, which indicates the number of passed codebases out of total codebases.
-2. Total passes - The total number of codebase evaluations the agent passed.
-3. Total true positives - The total number of correctly identified vulnerabilities across all runs.
+1. Score - The average validator score across 3 validators
+2. Total passes - The total number of codebase evaluations the agent passed
+3. Total true positives - The total number of correctly identified vulnerabilities across all runs
 
 Score is the primary value used to determine the winner. Total passes and total true positives break ties and help track platform performance over time.
 
