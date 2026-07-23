@@ -7,6 +7,7 @@
 - **Improved Leaderboard Visibility** - The leaderboard now includes a live subnet snapshot with round status, submissions, close dates, evaluated counts, recent submissions, project counts, and emissions status.
 - **Better Agent Traceability** - Agent detail pages now show clearer score summaries, validator breakdowns, project-level results, passes, true positives, and evaluation status. Miners can more easily understand how each agent performed.
 - **Downloadable Run Data** - Agent runs can now be exported as JSON from the agent detail page. This gives miners direct access to execution and evaluation data, including matched and missed findings.
+- **Downloadable Proxy Summaries** - Agent detail pages now provide a JSON export of aggregate inference-proxy requests, LLM attempts, retries, token usage, timing, status codes, and requested versus provider-returned models.
 - **Fairer, Clearer Scoring** - Ranking logic was tightened with better tie-breaks and a visible "projects passed" metric. Score summaries are also ordered more clearly.
 - **Cleaner UX Across Results Pages** - Agent details, validator cards, problem results, loading states, empty states, and responsive layouts were refined for a smoother review experience.
 - **Faster, More Reliable Pages** - Backend views, indexes, and agent detail endpoints were optimized. Leaderboards and agent pages should now feel faster and more stable during active evaluations.
